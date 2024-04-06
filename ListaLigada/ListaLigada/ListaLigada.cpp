@@ -115,6 +115,8 @@ void inserirElemento()
 {
 	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
+	NO* aux = primeiro;
+	NO* atual = NULL;
 	if (novo == NULL)
 	{
 		return;
@@ -122,21 +124,33 @@ void inserirElemento()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
+
 	novo->prox = NULL;
 
-	if (primeiro == NULL)
+	if (aux == NULL)
 	{
 		primeiro = novo;
+		return;
 	}
-	else
-	{
-		// procura o final da lista
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
-		}
+	
+	if (aux->prox == NULL) {
 		aux->prox = novo;
 	}
+	//não consigo fazer com que a função aloque mais números além de 2. Tentei colocar dentro do segundo if algo que fizesse com que o aux->prox fosse NULL :(
+
+		
+		
+		//aux->prox = atual;
+	//else
+	//{
+
+		// procura o final da lista
+		//NO* aux = primeiro;
+		//while (aux->prox != NULL) {
+			//aux = aux->prox;
+		//}
+		//aux->prox = novo;
+	
 }
 
 void excluirElemento()
